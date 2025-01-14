@@ -1,0 +1,20 @@
+form {
+  gap: 10px;
+  display: flex;
+  justify-content: left;
+  padding: 10px 0;
+  margin-left: 24px;
+}
+
+header {
+  position: sticky;
+  width: 100%;
+  top: 72px;
+  padding: 0;
+  margin: 16px 0;
+}
+
+input,
+.btn {
+  height: 40px;
+}
