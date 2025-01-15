@@ -7,7 +7,7 @@ nav {
   top: 0;
   background-color: #f2f4f7;
   justify-content: center;
-  position: relative;
+  z-index: 99;
 }
 
 nav a {
