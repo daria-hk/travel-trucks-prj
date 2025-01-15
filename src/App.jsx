@@ -3,9 +3,9 @@ import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation.jsx";
 import Loader from "./components/Loader/Loader.jsx";
 
-const Home = lazy(() => import("./pages/HomePage.jsx"));
+const Home = lazy(() => import("./pages/HomePage/HomePage.jsx"));
 const Movies = lazy(() => import("./pages/MoviesPage.jsx"));
-const CatalogPage = lazy(() => import("./pages/CatalogPage.jsx"));
+const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage.jsx"));
 
 const MovieDetailsPage = lazy(() =>
   import("./pages/MovieDetailsPage/MovieDetailsPage.jsx")

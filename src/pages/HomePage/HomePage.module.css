@@ -1,0 +1,35 @@
+.wrapper {
+  margin-top: 344px;
+  margin-left: 64px;
+  position: absolute;
+  margin-left: 64px;
+}
+
+.wrapper h2 {
+  margin: 16px 0 40px;
+  font-size: 24px;
+  line-height: 133%;
+}
+
+.wrapper h1 {
+  font-size: 48px;
+  line-height: 67%;
+  margin: 0;
+}
+
+.wrapper button {
+  background-color: #e44848;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  padding: 16px 60px;
+  border: none;
+  border-radius: 200px;
+}
+
+.homeBackground {
+  background-image: url("/src/assets/Hero%20image.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
