@@ -38,7 +38,7 @@ export default function CatalogPage() {
       {items.length > 0 ? (
         <CatalogList items={items} />
       ) : (
-        <p>No movies available at the moment.</p>
+        <p>No options available at the moment.</p>
       )}
     </>
   );
