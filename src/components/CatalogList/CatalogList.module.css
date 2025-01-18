@@ -3,12 +3,3 @@
   flex-flow: column;
   gap: 32px;
 }
-
-.catalogItem {
-  border: 1px solid #dadde1;
-  border-radius: 20px;
-  padding: 24px;
-  width: 888px;
-  height: 368px;
-  color: black;
-}

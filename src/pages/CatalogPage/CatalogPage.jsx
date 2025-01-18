@@ -3,6 +3,8 @@ import { fetchCampers } from "../../redux/campersOps.js";
 import Loader from "../../components/Loader/Loader.jsx";
 import ErrorMassage from "../../components/ErrorMassage/ErrorMassage.jsx";
 import CatalogList from "../../components/CatalogList/CatalogList.jsx";
+import Sidebar from "../../components/Sidebar/Sidebar.jsx";
+import css from "./CatalogPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectCampers,
@@ -25,7 +27,10 @@ export default function CatalogPage() {
       {loading && <Loader />}
       {error && <ErrorMassage />}
       {items.length > 0 ? (
-        <CatalogList items={items} />
+        <div className={css.catalogPage}>
+          <Sidebar />
+          <CatalogList items={items} />
+        </div>
       ) : (
         <p>No options available at the moment.</p>
       )}

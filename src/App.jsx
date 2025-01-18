@@ -5,6 +5,9 @@ import Loader from "./components/Loader/Loader.jsx";
 
 const Home = lazy(() => import("./pages/HomePage/HomePage.jsx"));
 const CatalogPage = lazy(() => import("./pages/CatalogPage/CatalogPage.jsx"));
+const CamperDetailPage = lazy(() =>
+  import("./pages/CamperDetailPage/CamperDetailPage.jsx")
+);
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 export function App() {
@@ -15,6 +18,7 @@ export function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/campers" element={<CatalogPage />} />
+          <Route path="/campers/:id" element={<CamperDetailPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
