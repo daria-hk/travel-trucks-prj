@@ -4,11 +4,15 @@ import Loader from "../../components/Loader/Loader.jsx";
 import ErrorMassage from "../../components/ErrorMassage/ErrorMassage.jsx";
 import CatalogList from "../../components/CatalogList/CatalogList.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { selectCampers } from "../../redux/campersSlice.js";
+import {
+  selectCampers,
+  selectError,
+  selectIsLoading,
+} from "../../redux/campersSlice.js";
 
 export default function CatalogPage() {
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const loading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
   const items = useSelector(selectCampers);
   const dispatch = useDispatch();
 
@@ -18,7 +22,6 @@ export default function CatalogPage() {
 
   return (
     <>
-      <h1>Trending Today</h1>
       {loading && <Loader />}
       {error && <ErrorMassage />}
       {items.length > 0 ? (
