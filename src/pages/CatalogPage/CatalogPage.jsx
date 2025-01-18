@@ -1,34 +1,20 @@
 import { useEffect, useState } from "react";
-import { fetchCampers } from "../../themoviedb-api.js";
+import { fetchCampers } from "../../redux/campersOps.js";
 import Loader from "../../components/Loader/Loader.jsx";
 import ErrorMassage from "../../components/ErrorMassage/ErrorMassage.jsx";
 import CatalogList from "../../components/CatalogList/CatalogList.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import { selectCampers } from "../../redux/campersSlice.js";
 
 export default function CatalogPage() {
-  const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const items = useSelector(selectCampers);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    async function loadItems() {
-      setLoading(true);
-      setError(false);
-
-      try {
-        const campersDate = await fetchCampers();
-        console.log("campersDate", campersDate);
-        setItems(campersDate);
-      } catch (error) {
-        setError(true);
-        console.error(error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    loadItems();
-  }, []);
-  console.log(items);
+    dispatch(fetchCampers());
+  }, [dispatch]);
 
   return (
     <>
