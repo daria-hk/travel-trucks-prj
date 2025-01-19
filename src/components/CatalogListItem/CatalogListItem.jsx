@@ -1,6 +1,6 @@
 import EquipmentChips from "../EquipmentChips/EquipmentChips";
 import css from "./CatalogListItem.module.css";
-import { Link, useLocation } from "react-router";
+import { Link } from "react-router";
 
 const CatalogListItem = ({
   id,

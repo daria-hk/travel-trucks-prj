@@ -1,13 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router";
+import { useSelector } from "react-redux";
 import {
   selectCamperDetail,
   selectError,
   selectIsLoading,
 } from "../../redux/campersSlice";
-import { getCamperId } from "../../redux/campersOps";
-import { useEffect } from "react";
-import css from "./CamperFeatures.module.css";
 import EquipmentChips from "../EquipmentChips/EquipmentChips";
 
 export default function CamperFeatures() {
