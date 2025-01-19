@@ -13,7 +13,6 @@ export default function CamperReviews() {
 
   if (loading) return <Loader />;
   if (error) return <ErrorMassage />;
-  console.log(camper);
 
   return (
     <div className={css.reviews}>

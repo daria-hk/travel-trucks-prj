@@ -41,12 +41,10 @@ export default function CatalogPage() {
       : true;
 
     const equipmentMatch = equipmentFilter.every((equipment) => {
-      const itemEquipmentValue = item[equipment];
-      return (
-        itemEquipmentValue === true ||
-        itemEquipmentValue === "true" ||
-        itemEquipmentValue === "automatic"
-      );
+      return equipment.every((e) => {
+        console.log(item[e] === "automatic", item[e] === true, item[e]);
+        return item[e] === true || item[e] === "automatic";
+      });
     });
 
     return locationMatch && vehicleTypeMatch && equipmentMatch;

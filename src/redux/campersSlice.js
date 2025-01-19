@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchCampers, getCamperId } from "./campersOps";
 
 const initialState = {
-  items: [], 
+  items: [],
   camperDetail: null,
   isLoading: false,
   error: null,
@@ -35,7 +35,6 @@ export const campersSlice = createSlice({
       .addCase(fetchCampers.fulfilled, (state, action) => {
         state.isLoading = false;
         state.items = action.payload;
-        console.log(state.items);
       })
       .addCase(fetchCampers.rejected, handleRejected)
       .addCase(getCamperId.pending, handlePending)

@@ -22,7 +22,6 @@ const BookingForm = () => {
   });
 
   const onSubmit = (values, { resetForm }) => {
-    console.log("Form data", values);
     resetForm();
   };
 

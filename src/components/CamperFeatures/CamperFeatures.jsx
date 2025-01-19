@@ -14,7 +14,6 @@ export default function CamperFeatures() {
 
   if (loading) return <Loader />;
   if (error) return <ErrorMassage />;
-  console.log(camper);
 
   return (
     <div className={css.features}>

@@ -7,7 +7,6 @@ const CatalogList = ({ items }) => {
   const uniqueItems = Array.from(
     new Map(items.map((item) => [item.id, item])).values()
   );
-  console.log(uniqueItems);
   return (
     <ul className={css.catalogList}>
       {uniqueItems.map((item) => (

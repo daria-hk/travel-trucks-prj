@@ -20,7 +20,6 @@ const filtersSlice = createSlice({
       } else {
         state.equipment.push(equipment);
       }
-      console.log(" Equipment :", equipment);
     },
     setVehicleTypeFilter: (state, action) => {
       state.form = action.payload;
