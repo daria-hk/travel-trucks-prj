@@ -10,6 +10,7 @@ import {
   selectError,
 } from "../../redux/campersSlice.js";
 import css from "./CamperDetailPage.module.css";
+import CamperCard from "../../components/CamperCard/CamperCard.jsx";
 
 export default function CamperDetailPage() {
   const { id } = useParams();
@@ -28,27 +29,7 @@ export default function CamperDetailPage() {
 
   return camper ? (
     <div className={css.camperPage}>
-      <div className={css.camperComponent}>
-        <p className={css.headline}>{camper.name}</p>
-        <div className={css.subHeadline}>
-          <p
-            className={css.reviews}
-          >{`${camper.rating}(${camper.reviews.length}) Reviews`}</p>
-          <p className={css.location}>{camper.location}</p>
-        </div>
-        <p className={css.price}>{`€${parseFloat(camper.price).toFixed(2)}`}</p>
-        <div className={css.gallery}>
-          {camper.gallery.map((photo, index) => (
-            <img
-              key={index}
-              src={photo.thumb}
-              alt={`Camper photo ${index + 1}`}
-              className={css.galleryImage}
-            />
-          ))}
-        </div>
-        <p>{`Description: ${camper.description}`}</p>
-      </div>
+      <CamperCard camper={camper} />
     </div>
   ) : (
     <p>No camper details available.</p>
