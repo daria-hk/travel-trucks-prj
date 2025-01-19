@@ -2,4 +2,26 @@
   color: black;
   display: flex;
   flex-flow: column;
+  margin-top: 48px;
+}
+
+.wrapper {
+  display: flex;
+  margin: 0 auto;
+  justify-content: start;
+  flex-flow: column;
+}
+
+.optionsContainer {
+  display: flex;
+  gap: 40px;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.optionsContainer a {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  color: #101828;
 }

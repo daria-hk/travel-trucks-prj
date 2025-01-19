@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 import Loader from "../../components/Loader/Loader.jsx";
 import ErrorMassage from "../../components/ErrorMassage/ErrorMassage.jsx";
 import { getCamperId } from "../../redux/campersOps.js";
@@ -29,7 +29,14 @@ export default function CamperDetailPage() {
 
   return camper ? (
     <div className={css.camperPage}>
-      <CamperCard camper={camper} />
+      <div className={css.wrapper}>
+        <CamperCard camper={camper} />
+        <div className={css.optionsContainer}>
+          <Link to="features">Features</Link>
+          <Link to="reviews">Reviews</Link>
+          <Outlet />
+        </div>
+      </div>
     </div>
   ) : (
     <p>No camper details available.</p>

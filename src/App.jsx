@@ -9,6 +9,12 @@ const CamperDetailPage = lazy(() =>
   import("./pages/CamperDetailPage/CamperDetailPage.jsx")
 );
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
+const CamperFeatures = lazy(() =>
+  import("./components/CamperFeatures/CamperFeatures.jsx")
+);
+const CamperReviews = lazy(() =>
+  import("./components/CamperReviews/CamperReviews.jsx")
+);
 
 export function App() {
   return (
@@ -18,7 +24,10 @@ export function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/campers" element={<CatalogPage />} />
-          <Route path="/campers/:id" element={<CamperDetailPage />} />
+          <Route path="/campers/:id" element={<CamperDetailPage />}>
+            <Route path="features" element={<CamperFeatures />} />
+            <Route path="reviews" element={<CamperReviews />} />
+          </Route>
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
