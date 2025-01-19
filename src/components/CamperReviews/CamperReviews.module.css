@@ -1,0 +1,8 @@
+.reviews {
+  width: 631px;
+  height: 340px;
+  color: black;
+  display: flex;
+  flex-flow: column;
+  gap: 44px;
+}

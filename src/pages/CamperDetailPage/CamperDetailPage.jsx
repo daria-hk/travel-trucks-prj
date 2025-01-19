@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { NavLink, Outlet, useParams } from "react-router-dom";
 import Loader from "../../components/Loader/Loader.jsx";
 import ErrorMassage from "../../components/ErrorMassage/ErrorMassage.jsx";
 import { getCamperId } from "../../redux/campersOps.js";
@@ -10,7 +10,10 @@ import {
   selectError,
 } from "../../redux/campersSlice.js";
 import css from "./CamperDetailPage.module.css";
+import clsx from "clsx";
+
 import CamperCard from "../../components/CamperCard/CamperCard.jsx";
+import BookingForm from "../../components/BookingForm/BookingForm.jsx";
 
 export default function CamperDetailPage() {
   const { id } = useParams();
@@ -23,6 +26,13 @@ export default function CamperDetailPage() {
     dispatch(getCamperId(id));
   }, [dispatch, id]);
 
+  const buildLinkClass = useMemo(
+    () =>
+      ({ isActive }) =>
+        clsx(css.link, isActive && css.active),
+    [css.link, css.active]
+  );
+
   if (loading) return <Loader />;
   if (error) return <ErrorMassage />;
 
@@ -30,10 +40,22 @@ export default function CamperDetailPage() {
     <div className={css.camperPage}>
       <div className={css.wrapper}>
         <CamperCard camper={camper} />
+
         <div className={css.optionsContainer}>
-          <Link to="features">Features</Link>
-          <Link to="reviews">Reviews</Link>
-          <Outlet />
+          <div className={css.navigationsLinks}>
+            <NavLink className={buildLinkClass} to="features">
+              Features
+            </NavLink>
+            <NavLink className={buildLinkClass} to="reviews">
+              Reviews
+            </NavLink>
+          </div>
+          <div className={css.bottomCotainer}>
+            <Outlet />
+            <div className={css.bookingForm}>
+              <BookingForm />
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ import {
   selectIsLoading,
 } from "../../redux/campersSlice";
 import EquipmentChips from "../EquipmentChips/EquipmentChips";
+import css from "./CamperFeatures.module.css";
 
 export default function CamperFeatures() {
   const loading = useSelector(selectIsLoading);
@@ -16,7 +17,7 @@ export default function CamperFeatures() {
   console.log(camper);
 
   return (
-    <div>
+    <div className={css.features}>
       <EquipmentChips camper={camper} />
     </div>
   );

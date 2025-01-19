@@ -1,0 +1,84 @@
+.bookingFormContainer {
+  border: 1px solid #dadde1;
+  border-radius: 10px;
+  padding: 44px;
+  width: 641px;
+  height: 588px;
+}
+
+.bookingFormContainer h2 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: black;
+}
+
+.bookingFormContainer p {
+  font-size: 14px;
+  color: #6b6b6b;
+  margin-bottom: 20px;
+}
+
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.inputField {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.inputField:focus {
+  color: black;
+}
+
+.textareaField {
+  resize: none;
+  height: 80px;
+}
+
+textarea,
+input {
+  background: white;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #6c717b;
+}
+
+.errorMessage {
+  font-size: 12px;
+  color: red;
+  margin-top: 4px;
+}
+
+.submitButton {
+  border-radius: 200px;
+  width: 166px;
+  height: 56px;
+  background: #e44848;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: -0.01em;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 24px;
+}
+
+.submitButton:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
