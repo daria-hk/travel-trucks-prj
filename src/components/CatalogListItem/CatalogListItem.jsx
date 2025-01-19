@@ -52,11 +52,10 @@ const CatalogListItem = ({
             <p className={`${css.engineTole} ${css.equipmentTile}`}>Petrol</p>
           )}
         </div>
-        <button>
-          <Link to={`${id}`} state={location}>
-            Show more
-          </Link>
-        </button>
+
+        <Link to={`${id}`} state={location}>
+          <button> Show more</button>
+        </Link>
       </div>
     </li>
   );
