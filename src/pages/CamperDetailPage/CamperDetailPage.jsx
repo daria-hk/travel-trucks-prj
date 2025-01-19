@@ -25,7 +25,6 @@ export default function CamperDetailPage() {
 
   if (loading) return <Loader />;
   if (error) return <ErrorMassage />;
-  console.log(camper);
 
   return camper ? (
     <div className={css.camperPage}>

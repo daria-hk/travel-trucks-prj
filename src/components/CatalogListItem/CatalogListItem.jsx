@@ -1,3 +1,4 @@
+import EquipmentChips from "../EquipmentChips/EquipmentChips";
 import css from "./CatalogListItem.module.css";
 import { Link, useLocation } from "react-router";
 
@@ -17,6 +18,15 @@ const CatalogListItem = ({
   engine,
   gallery,
 }) => {
+  const camper = {
+    kitchen,
+    transmission,
+    TV,
+    AC,
+    bathroom,
+    engine,
+  };
+
   return (
     <li key={id} className={css.catalogItem}>
       <img src={gallery[0].thumb} alt={`${name} Thumbnail`} />
@@ -32,26 +42,7 @@ const CatalogListItem = ({
           <p className={css.location}>{location}</p>
         </div>
         <p className={css.description}>{description}</p>
-        <div className={css.equipment}>
-          {kitchen && (
-            <p className={`${css.kitchenTile} ${css.equipmentTile}`}>Kitchen</p>
-          )}
-          {transmission === "automatic" && (
-            <p className={`${css.transmissionTile} ${css.equipmentTile}`}>
-              Automatic
-            </p>
-          )}
-          {AC && <p className={`${css.acTile} ${css.equipmentTile}`}>AC</p>}
-          {bathroom && (
-            <p className={`${css.bathroomTile} ${css.equipmentTile}`}>
-              Bathroom
-            </p>
-          )}
-          {TV && <p className={`${css.tvTile} ${css.equipmentTile}`}>TV</p>}
-          {engine === "petrol" && (
-            <p className={`${css.engineTole} ${css.equipmentTile}`}>Petrol</p>
-          )}
-        </div>
+        <EquipmentChips camper={camper} />
 
         <Link to={`${id}`} state={location}>
           <button> Show more</button>
