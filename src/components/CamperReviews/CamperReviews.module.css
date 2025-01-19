@@ -1,6 +1,5 @@
 .reviews {
   width: 631px;
-  height: 340px;
   color: black;
   display: flex;
   flex-flow: column;

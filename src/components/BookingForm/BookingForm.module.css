@@ -3,7 +3,6 @@
   border-radius: 10px;
   padding: 44px;
   width: 641px;
-  height: 588px;
 }
 
 .bookingFormContainer h2 {
@@ -34,9 +33,10 @@
   width: 100%;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 4px;
   outline: none;
+  background: #f7f7f7;
 }
 
 .inputField:focus {
@@ -75,7 +75,7 @@ input {
   letter-spacing: -0.01em;
   color: #fff;
   cursor: pointer;
-  margin-top: 24px;
+  margin: 24px auto 0;
 }
 
 .submitButton:disabled {
