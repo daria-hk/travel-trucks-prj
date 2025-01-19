@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { fetchCampers, getCamperId } from "./campersOps";
 
 const initialState = {
-  items: [], // Liste aller Camper
-  camperDetail: null, // Details eines einzelnen Campers
+  items: [], 
+  camperDetail: null,
   isLoading: false,
   error: null,
 };
@@ -35,12 +35,13 @@ export const campersSlice = createSlice({
       .addCase(fetchCampers.fulfilled, (state, action) => {
         state.isLoading = false;
         state.items = action.payload;
+        console.log(state.items);
       })
       .addCase(fetchCampers.rejected, handleRejected)
       .addCase(getCamperId.pending, handlePending)
       .addCase(getCamperId.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.camperDetail = action.payload; // Speichert Einzel-Camper-Daten
+        state.camperDetail = action.payload;
       })
       .addCase(getCamperId.rejected, handleRejected);
   },
@@ -48,7 +49,7 @@ export const campersSlice = createSlice({
 
 export const { resetState } = campersSlice.actions;
 export const campersReducer = campersSlice.reducer;
-export const selectCampers = (state) => state.campers.items; // Liste aller Camper
-export const selectCamperDetail = (state) => state.campers.camperDetail; // Einzelner Camper
+export const selectCampers = (state) => state.campers.items;
+export const selectCamperDetail = (state) => state.campers.camperDetail;
 export const selectIsLoading = (state) => state.campers.isLoading;
 export const selectError = (state) => state.campers.error;

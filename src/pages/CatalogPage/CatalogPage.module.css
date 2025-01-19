@@ -1,3 +1,15 @@
 .catalogPage {
   display: flex;
 }
+
+main {
+  display: flex;
+  margin: 48px auto;
+  width: 1440px;
+  gap: 48px;
+}
+
+.noOptions {
+  color: red;
+  font-size: 48px;
+}

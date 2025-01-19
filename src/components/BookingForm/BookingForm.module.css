@@ -24,7 +24,7 @@
 .bookingForm {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 1px;
 }
 
 .formGroup {
@@ -80,6 +80,11 @@ input {
   color: #fff;
   cursor: pointer;
   margin: 24px auto 0;
+  transition: background-color 0.3s;
+}
+
+.submitButton:hover {
+  background-color: #d9363e;
 }
 
 .submitButton:disabled {
