@@ -9,18 +9,22 @@
   font-size: 24px;
   margin-bottom: 8px;
   color: black;
+  margin: 0 0 8px;
+}
+
+.bookingFormContainer .subHeadline {
+  margin: 0 0 24px;
 }
 
 .bookingFormContainer p {
   font-size: 14px;
   color: #6b6b6b;
-  margin-bottom: 20px;
 }
 
 .bookingForm {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
 }
 
 .formGroup {
@@ -34,7 +38,7 @@
   padding: 10px;
   font-size: 16px;
   border: none;
-  border-radius: 4px;
+  border-radius: 12px;
   outline: none;
   background: #f7f7f7;
 }

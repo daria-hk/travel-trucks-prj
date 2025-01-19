@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useParams } from "react-router-dom";
 import Loader from "../../components/Loader/Loader.jsx";
 import ErrorMassage from "../../components/ErrorMassage/ErrorMassage.jsx";
 import { getCamperId } from "../../redux/campersOps.js";
@@ -16,6 +16,7 @@ import CamperCard from "../../components/CamperCard/CamperCard.jsx";
 import BookingForm from "../../components/BookingForm/BookingForm.jsx";
 
 export default function CamperDetailPage() {
+  const location = useLocation();
   const { id } = useParams();
   const dispatch = useDispatch();
   const loading = useSelector(selectIsLoading);
@@ -32,6 +33,13 @@ export default function CamperDetailPage() {
         clsx(css.link, isActive && css.active),
     [css.link, css.active]
   );
+
+  const isFormVisible = useMemo(() => {
+    return (
+      location.pathname.includes("features") ||
+      location.pathname.includes("reviews")
+    );
+  }, [location.pathname]);
 
   if (loading) return <Loader />;
   if (error) return <ErrorMassage />;
@@ -52,9 +60,11 @@ export default function CamperDetailPage() {
           </div>
           <div className={css.bottomCotainer}>
             <Outlet />
-            <div className={css.bookingForm}>
-              <BookingForm />
-            </div>
+            {isFormVisible && (
+              <div className={css.bookingForm}>
+                <BookingForm />
+              </div>
+            )}
           </div>
         </div>
       </div>

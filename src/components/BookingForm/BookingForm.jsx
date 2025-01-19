@@ -29,7 +29,9 @@ const BookingForm = () => {
   return (
     <div className={css.bookingFormContainer}>
       <h2>Book your campervan now</h2>
-      <p>Stay connected! We are always ready to help you.</p>
+      <p className={css.subHeadline}>
+        Stay connected! We are always ready to help you.
+      </p>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
