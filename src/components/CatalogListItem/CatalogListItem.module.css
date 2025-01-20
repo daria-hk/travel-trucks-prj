@@ -88,3 +88,11 @@ button.favorites:hover {
   justify-content: center;
   position: relative;
 }
+
+.reviews,
+.location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}

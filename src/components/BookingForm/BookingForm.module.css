@@ -24,7 +24,7 @@
 .bookingForm {
   display: flex;
   flex-direction: column;
-  gap: 1px;
+  gap: 14px;
 }
 
 .formGroup {

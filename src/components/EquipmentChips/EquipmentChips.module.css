@@ -15,4 +15,8 @@
   line-height: 150%;
   text-align: center;
   color: #101828;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }

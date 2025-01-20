@@ -67,10 +67,28 @@ const CatalogListItem = ({
           </div>
         </div>
         <div className={css.subHeadLine}>
-          <p
-            className={css.reviews}
-          >{`${rating}(${reviews.length}) Reviews`}</p>
-          <p className={css.location}>{location}</p>
+          <p className={css.reviews}>
+            <svg
+              style={{
+                width: "16px",
+                height: "16px",
+              }}
+            >
+              <use href={`${iconSvg}#icon-star-yellow`} />
+            </svg>
+            {`${rating}(${reviews.length}) Reviews`}
+          </p>
+          <p className={css.location}>
+            <svg
+              style={{
+                width: "16px",
+                height: "16px",
+              }}
+            >
+              <use href={`${iconSvg}#icon-map`} />
+            </svg>
+            {location}
+          </p>
         </div>
         <p className={css.description}>{description}</p>
         <EquipmentChips camper={camper} />
