@@ -70,3 +70,8 @@ p {
   color: #fff;
   text-decoration: none;
 }
+
+button.favorites {
+  width: 24px;
+  height: 24px;
+}

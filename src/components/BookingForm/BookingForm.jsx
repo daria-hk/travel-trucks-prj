@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import css from "./BookingForm.module.css"; // Passe den CSS-Pfad an dein Projekt an
+import css from "./BookingForm.module.css";
 
 const BookingForm = () => {
   const initialValues = {

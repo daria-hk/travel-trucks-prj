@@ -1,6 +1,8 @@
 import EquipmentChips from "../EquipmentChips/EquipmentChips";
 import css from "./CatalogListItem.module.css";
 import { Link } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { addToFavorites, removeFromFavorites } from "../../redux/favSlice";
 
 const CatalogListItem = ({
   id,
@@ -18,6 +20,9 @@ const CatalogListItem = ({
   engine,
   gallery,
 }) => {
+  const dispatch = useDispatch();
+  const favorites = useSelector((state) => state.favorites.favorites);
+
   const camper = {
     kitchen,
     transmission,
@@ -27,6 +32,16 @@ const CatalogListItem = ({
     engine,
   };
 
+  const isFavorite = favorites.includes(id);
+
+  const handleAddToFav = () => {
+    if (isFavorite) {
+      dispatch(removeFromFavorites(id));
+    } else {
+      dispatch(addToFavorites(id));
+    }
+  };
+
   return (
     <li key={id} className={css.catalogItem}>
       <img src={gallery[0].thumb} alt={`${name} Thumbnail`} />
@@ -34,6 +49,14 @@ const CatalogListItem = ({
         <div className={css.headLine}>
           <p>{name}</p>
           <p className={css.price}>{`€${parseFloat(price).toFixed(2)}`}</p>
+          <button
+            className={css.favorites}
+            onClick={handleAddToFav}
+            style={{
+              backgroundColor: isFavorite ? "red" : "gray",
+              color: "white",
+            }}
+          ></button>
         </div>
         <div className={css.subHeadLine}>
           <p
