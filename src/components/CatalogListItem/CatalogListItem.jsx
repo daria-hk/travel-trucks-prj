@@ -49,19 +49,22 @@ const CatalogListItem = ({
       <div className={css.columnRight}>
         <div className={css.headLine}>
           <p>{name}</p>
-          <p className={css.price}>{`€${parseFloat(price).toFixed(2)}`}</p>
-          <button className={css.favorites} onClick={handleAddToFav}>
-            <svg
-              style={{
-                width: "20px",
-                height: "20px",
-                fill: isFavorite ? "red" : "grey",
-                marginRight: "8px",
-              }}
-            >
-              <use href={`${iconSvg}#icon-star-grey`} />
-            </svg>
-          </button>
+          <div className={css.groupHeadline}>
+            <p className={css.price}>{`€${parseFloat(price).toFixed(2)}`}</p>
+            <button className={css.favorites} onClick={handleAddToFav}>
+              <svg
+                style={{
+                  width: "26px",
+                  height: "24px",
+                  fill: isFavorite ? "red" : "grey",
+                  position: "absolute",
+                  top: "5px",
+                }}
+              >
+                <use href={`${iconSvg}#icon-star-grey`} />
+              </svg>
+            </button>
+          </div>
         </div>
         <div className={css.subHeadLine}>
           <p
