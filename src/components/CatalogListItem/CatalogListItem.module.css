@@ -74,4 +74,11 @@ p {
 button.favorites {
   width: 24px;
   height: 24px;
+  background: none;
+  margin: 0;
+}
+
+button.favorites:hover {
+  background: none;
+  border: none;
 }

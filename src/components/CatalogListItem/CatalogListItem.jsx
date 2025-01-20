@@ -3,6 +3,7 @@ import css from "./CatalogListItem.module.css";
 import { Link } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavorites, removeFromFavorites } from "../../redux/favSlice";
+import iconSvg from "../../assets/symbol-defs(7).svg";
 
 const CatalogListItem = ({
   id,
@@ -49,14 +50,18 @@ const CatalogListItem = ({
         <div className={css.headLine}>
           <p>{name}</p>
           <p className={css.price}>{`€${parseFloat(price).toFixed(2)}`}</p>
-          <button
-            className={css.favorites}
-            onClick={handleAddToFav}
-            style={{
-              backgroundColor: isFavorite ? "red" : "gray",
-              color: "white",
-            }}
-          ></button>
+          <button className={css.favorites} onClick={handleAddToFav}>
+            <svg
+              style={{
+                width: "20px",
+                height: "20px",
+                fill: isFavorite ? "grey" : "red",
+                marginRight: "8px",
+              }}
+            >
+              <use href={`${iconSvg}#icon-star-grey`} />
+            </svg>
+          </button>
         </div>
         <div className={css.subHeadLine}>
           <p
