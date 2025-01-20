@@ -23,8 +23,8 @@ export function App() {
       <Suspense fallback={<Loader />}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/campers" element={<CatalogPage />} />
-          <Route path="/campers/:id" element={<CamperDetailPage />}>
+          <Route path="/catalog" element={<CatalogPage />} />
+          <Route path="/catalog/:id" element={<CamperDetailPage />}>
             <Route path="features" element={<CamperFeatures />} />
             <Route path="reviews" element={<CamperReviews />} />
           </Route>
