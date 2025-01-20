@@ -55,7 +55,7 @@ const CatalogListItem = ({
               style={{
                 width: "20px",
                 height: "20px",
-                fill: isFavorite ? "grey" : "red",
+                fill: isFavorite ? "red" : "grey",
                 marginRight: "8px",
               }}
             >
