@@ -1,15 +1,35 @@
 import React from "react";
 import css from "./CamperCard.module.css";
+import iconSvg from "../../assets/icons.svg";
 
 const CamperCard = ({ camper }) => {
   return (
     <div className={css.camperComponent}>
       <p className={css.headline}>{camper.name}</p>
       <div className={css.subHeadline}>
-        <p
-          className={css.reviews}
-        >{`${camper.rating}(${camper.reviews.length}) Reviews`}</p>
-        <p className={css.location}>{camper.location}</p>
+        <p className={css.reviews}>
+          <svg
+            style={{
+              width: "16px",
+              height: "16px",
+            }}
+          >
+            <use href={`${iconSvg}#icon-star-yellow`} />
+          </svg>
+
+          {`${camper.rating}(${camper.reviews.length}) Reviews`}
+        </p>
+        <p className={css.location}>
+          <svg
+            style={{
+              width: "16px",
+              height: "16px",
+            }}
+          >
+            <use href={`${iconSvg}#icon-map`} />
+          </svg>
+          {camper.location}
+        </p>
       </div>
       <p className={css.price}>{`€${parseFloat(camper.price).toFixed(2)}`}</p>
       <div className={css.gallery}>

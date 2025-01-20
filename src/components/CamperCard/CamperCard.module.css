@@ -41,3 +41,11 @@ p {
 .description {
   max-width: 1312px;
 }
+
+.reviews,
+.location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
