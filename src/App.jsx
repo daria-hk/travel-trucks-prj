@@ -18,20 +18,18 @@ const CamperReviews = lazy(() =>
 
 export function App() {
   return (
-    <>
+    <Suspense fallback={<Loader />}>
       <Navigation />
-      <Suspense fallback={<Loader />}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/catalog" element={<CatalogPage />} />
-          <Route path="/catalog/:id" element={<CamperDetailPage />}>
-            <Route path="features" element={<CamperFeatures />} />
-            <Route path="reviews" element={<CamperReviews />} />
-          </Route>
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </Suspense>
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/catalog" element={<CatalogPage />} />
+        <Route path="/catalog/:id" element={<CamperDetailPage />}>
+          <Route path="features" element={<CamperFeatures />} />
+          <Route path="reviews" element={<CamperReviews />} />
+        </Route>
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </Suspense>
   );
 }
 
