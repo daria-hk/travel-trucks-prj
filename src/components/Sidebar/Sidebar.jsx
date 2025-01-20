@@ -6,13 +6,14 @@ import {
   setEquipmentFilter,
   setVehicleTypeFilter,
 } from "../../redux/filtersSlice";
+import iconSvg from "../../assets/icons.svg";
 
 export default function Sidebar() {
   const dispatch = useDispatch();
   const vehicleTypeEntries = {
-    alcove: "Alcove",
+    paneltruck: "Van",
     fullyintegrated: "Fully Integrated",
-    paneltruck: "Panel Truck",
+    alcove: "Alcove",
   };
   const vehicleEquipment = {
     AC: "AC",
@@ -20,6 +21,20 @@ export default function Sidebar() {
     kitchen: "Kitchen",
     bathroom: "Bathroom",
     transmission: "Automatic",
+  };
+
+  const vehicleTypeEntriesIcons = {
+    alcove: "icon-bi_grid-3x3-gap",
+    fullyintegrated: "icon-bi_grid",
+    paneltruck: "icon-bi_grid-1x2",
+  };
+
+  const vehicleEquipmentIcons = {
+    AC: "icon-wind",
+    TV: "icon-tv",
+    kitchen: "icon-cup-hot",
+    bathroom: "icon-ph_shower",
+    transmission: "icon-diagram",
   };
 
   return (
@@ -58,6 +73,18 @@ export default function Sidebar() {
                       values.equipment.includes(key) ? css.selected : ""
                     }`}
                   >
+                    <svg
+                      style={{
+                        width: "32px",
+                        height: "32px",
+                      }}
+                    >
+                      <use
+                        href={`${iconSvg}#${
+                          vehicleEquipmentIcons[key] || "icon-default"
+                        }`}
+                      />{" "}
+                    </svg>
                     <Field
                       type="checkbox"
                       name="equipment"
@@ -91,6 +118,18 @@ export default function Sidebar() {
                       values.vehicleType === value ? css.selected : ""
                     }`}
                   >
+                    <svg
+                      style={{
+                        width: "32px",
+                        height: "32px",
+                      }}
+                    >
+                      <use
+                        href={`${iconSvg}#${
+                          vehicleTypeEntriesIcons[value] || "icon-default"
+                        }`}
+                      />{" "}
+                    </svg>
                     <Field type="radio" name="vehicleType" value={value} />
                     {label}
                   </label>

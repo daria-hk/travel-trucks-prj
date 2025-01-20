@@ -3,7 +3,7 @@ import css from "./CatalogListItem.module.css";
 import { Link } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { addToFavorites, removeFromFavorites } from "../../redux/favSlice";
-import iconSvg from "../../assets/symbol-defs(7).svg";
+import iconSvg from "../../assets/icons.svg";
 
 const CatalogListItem = ({
   id,
