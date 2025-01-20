@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchCampers } from "../../redux/campersOps.js";
 import Loader from "../../components/Loader/Loader.jsx";
 import ErrorMassage from "../../components/ErrorMassage/ErrorMassage.jsx";
@@ -27,7 +27,11 @@ export default function CatalogPage() {
 
   const dispatch = useDispatch();
 
+  // State für die Anzahl der angezeigten Items
+  const [visibleItemsCount, setVisibleItemsCount] = useState(3);
+
   useEffect(() => {
+    // Lade die Camper-Daten beim ersten Rendern
     dispatch(fetchCampers());
   }, [dispatch]);
 
@@ -42,13 +46,20 @@ export default function CatalogPage() {
 
     const equipmentMatch = equipmentFilter.every((equipment) => {
       return equipment.every((e) => {
-        console.log(item[e] === "automatic", item[e] === true, item[e]);
         return item[e] === true || item[e] === "automatic";
       });
     });
 
     return locationMatch && vehicleTypeMatch && equipmentMatch;
   });
+
+  // Funktion zum Laden von mehr Items
+  const loadMoreItems = () => {
+    setVisibleItemsCount(visibleItemsCount + 3); // Erhöhe die Anzahl der angezeigten Items um 3
+  };
+
+  // Die momentan angezeigten Items (basierend auf der sichtbaren Anzahl)
+  const visibleItems = filteredItems.slice(0, visibleItemsCount);
 
   return (
     <>
@@ -59,7 +70,14 @@ export default function CatalogPage() {
         <main>
           <Sidebar />
           {filteredItems.length > 0 ? (
-            <CatalogList items={filteredItems} />
+            <div className={css.wrapperCatalogPage}>
+              <CatalogList items={visibleItems} />
+              {visibleItemsCount < filteredItems.length && (
+                <button className={css.loadMoreButton} onClick={loadMoreItems}>
+                  Load More
+                </button>
+              )}
+            </div>
           ) : (
             <p className={css.noOptions}>No options available at the moment.</p>
           )}
